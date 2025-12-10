@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://farcaster-tipperbs.vercel.app';
+const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://karma-tipper.vercel.app';
 
 export const metadata: Metadata = {
   title: "Karma Tipper - Support Creators with Crypto Tips",
@@ -22,19 +22,34 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Karma Tipper",
     description: "Support great content with crypto tips",
-    images: [`${baseUrl}/api/og`],
+    images: [`${baseUrl}/splash.png`],
     url: baseUrl,
   },
   other: {
-    "fc:frame": "vNext",
-    "fc:frame:image": `${baseUrl}/api/og`,
-    "fc:frame:image:aspect_ratio": "1.91:1",
-    "fc:frame:button:1": "✨ Send Tip",
-    "fc:frame:button:1:action": "post",
-    "fc:frame:button:1:target": `${baseUrl}/api/frame`,
-    "fc:frame:button:2": "🌐 Open Full App",
-    "fc:frame:button:2:action": "launch_frame",
-    "fc:frame:button:2:target": baseUrl,
+    'fc:miniapp': JSON.stringify({
+      version: "1",
+      imageUrl: `${baseUrl}/splash.png`,
+      button: {
+        title: "Open Karma Tipper",
+        action: {
+          type: "launch_miniapp",
+          name: "Karma Tipper",
+          url: baseUrl
+        }
+      }
+    }),
+    'fc:frame': JSON.stringify({
+      version: "1",
+      imageUrl: `${baseUrl}/splash.png`,
+      button: {
+        title: "Open Karma Tipper",
+        action: {
+          type: "launch_frame",
+          name: "Karma Tipper",
+          url: baseUrl
+        }
+      }
+    }),
   },
 };
 
