@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Karma Tipper Logo Generator</title>
+</head>
+<body>
+    <h2>Logo (512x512)</h2>
+    <canvas id="logo" width="512" height="512"></canvas>
+    <br><button onclick="downloadLogo()">Download Logo</button>
+
+    <h2>Banner (1002x548)</h2>
+    <canvas id="banner" width="1002" height="548"></canvas>
+    <br><button onclick="downloadBanner()">Download Banner</button>
+
+    <script>
+        // Create Logo (512x512)
+        function createLogo() {
+            const canvas = document.getElementById('logo');
+            const ctx = canvas.getContext('2d');
+
+            // Gradient background
+            const gradient = ctx.createLinearGradient(0, 0, 512, 512);
+            gradient.addColorStop(0, '#667eea');
+            gradient.addColorStop(0.5, '#764ba2');
+            gradient.addColorStop(1, '#f093fb');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 512, 512);
+
+            // Sparkle emoji
+            ctx.font = 'bold 220px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('✨', 256, 220);
+
+            // Tip icon
+            ctx.font = 'bold 140px Arial';
+            ctx.fillText('💸', 256, 360);
+
+            // Border
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.lineWidth = 8;
+            ctx.strokeRect(4, 4, 504, 504);
+        }
+
+        // Create Banner (1002x548)
+        function createBanner() {
+            const canvas = document.getElementById('banner');
+            const ctx = canvas.getContext('2d');
+
+            // Gradient background
+            const gradient = ctx.createLinearGradient(0, 0, 1002, 548);
+            gradient.addColorStop(0, '#667eea');
+            gradient.addColorStop(0.3, '#764ba2');
+            gradient.addColorStop(0.7, '#f093fb');
+            gradient.addColorStop(1, '#ffd89b');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 1002, 548);
+
+            // Center content area (safe zone)
+            const centerX = 501;
+            const centerY = 274;
+
+            // Sparkle emoji
+            ctx.font = 'bold 140px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('✨', centerX, centerY - 80);
+
+            // Title
+            ctx.font = 'bold 72px Arial';
+            ctx.fillStyle = '#ffffff';
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+            ctx.shadowBlur = 10;
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
+            ctx.fillText('Karma Tipper', centerX, centerY + 50);
+
+            // Subtitle
+            ctx.font = '32px Arial';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+            ctx.shadowBlur = 5;
+            ctx.fillText('Send crypto tips on Base', centerX, centerY + 105);
+
+            // Icons at bottom
+            ctx.shadowBlur = 0;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 0;
+            ctx.font = '40px Arial';
+            ctx.fillText('💜 💸 🚀', centerX, centerY + 160);
+
+            // Decorative elements
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+            ctx.beginPath();
+            ctx.arc(100, 100, 60, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(900, 450, 80, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(850, 80, 50, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(150, 480, 40, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        function downloadLogo() {
+            const canvas = document.getElementById('logo');
+            const link = document.createElement('a');
+            link.download = 'karma-tipper-logo.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function downloadBanner() {
+            const canvas = document.getElementById('banner');
+            const link = document.createElement('a');
+            link.download = 'karma-tipper-banner.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        // Generate on load
+        createLogo();
+        createBanner();
+    </script>
+</body>
+</html>

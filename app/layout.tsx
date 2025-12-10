@@ -16,12 +16,12 @@ const geistMono = Geist_Mono({
 const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://karma-tipper.vercel.app';
 
 export const metadata: Metadata = {
-  title: "Karma Tipper - Support Creators with Crypto Tips",
-  description: "Tip your favorite Farcaster content creators with $DEGEN tokens on Base",
+  title: "Karma Tipper - Send crypto tips on Base",
+  description: "Support your favorite creators with instant $DEGEN token tips on Base network. Fast, low-cost, and powered by Web3 wallets.",
   metadataBase: new URL(baseUrl),
   openGraph: {
     title: "Karma Tipper",
-    description: "Support great content with crypto tips",
+    description: "Send crypto tips on Base",
     images: [`${baseUrl}/splash.png`],
     url: baseUrl,
   },
