@@ -26,6 +26,7 @@ export const metadata: Metadata = {
     url: baseUrl,
   },
   other: {
+    'base:app_id': '693995e1e6be54f5ed71d51c',
     'fc:miniapp': JSON.stringify({
       version: "1",
       imageUrl: `${baseUrl}/splash.png`,
