@@ -11,7 +11,9 @@ export const config = createConfig({
     injected(),
     coinbaseWallet({
       appName: 'Karma Tipper',
-      appLogoUrl: 'https://farcaster-tipperbs.vercel.app/api/og',
+      appLogoUrl: 'https://karma-tipper.vercel.app/splash.png',
+      // Enable EIP-5792 support for batch transactions
+      preference: 'smartWalletOnly',
     }),
     walletConnect({
       projectId,
