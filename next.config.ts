@@ -1,9 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  experimental: {
-    turbo: undefined,
-  },
+  turbopack: {},
   webpack: (config) => {
     config.externals.push('pino-pretty', 'lokijs', 'encoding')
     return config
